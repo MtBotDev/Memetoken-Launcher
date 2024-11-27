@@ -1,6 +1,6 @@
 
 
-# Solana Meme Token Launchpad 🚀 (via Raydium Dex)
+# Solana Meme Token Launcher 🚀 (via Raydium Dex)
 
 ## Overview
 
