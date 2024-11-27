@@ -9,42 +9,10 @@ interface Blockhash {
 
 
 export const executeVersionedTx = async (transaction: VersionedTransaction) => {
-  const latestBlockhash = await connection.getLatestBlockhash()
-  const signature = await connection.sendRawTransaction(transaction.serialize(), { skipPreflight: true })
-
-  const confirmation = await connection.confirmTransaction(
-    {
-      signature,
-      lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
-      blockhash: latestBlockhash.blockhash,
-    }
-  );
-
-  if (confirmation.value.err) {
-    console.log("Confirmation error")
-    return ""
-  } else {
-    console.log(`Confrimed transaction: https://solscan.io/tx/${signature}${cluster == "devnet" ? "?cluster=devnet" : ""}`)
-  }
-  return signature
+ 
 }
 
 
 export const executeLegacyTx = async (transaction: Transaction, signer: Keypair[], latestBlockhash: Blockhash) => {
-
-  const signature = await connection.sendTransaction(transaction, signer, { skipPreflight: true })
-  const confirmation = await connection.confirmTransaction(
-    {
-      signature,
-      lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
-      blockhash: latestBlockhash.blockhash,
-    }
-  );
-  if (confirmation.value.err) {
-    console.log("Confirmation error")
-    return null
-  } else {
-    console.log(`Confrimed transaction: https://solscan.io/tx/${signature}${cluster == "devnet" ? "?cluster=devnet" : ""}`)
-  }
-  return signature
+  
 }
