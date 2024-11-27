@@ -45,21 +45,8 @@ const programId = cluster == "devnet" ? DEVNET_PROGRAM_ID : MAINNET_PROGRAM_ID
 const single = async (token: UserToken) => {
   let params: PoolInfo
   try {
-    // if (recoveryMode == true) {
     const data = readJson()
-    //   if (!data.mainKp) {
-    //     console.log("Main keypair is not set")
-    //     return
-    //   }
-    //   params = {
-    //     mint: data.mint ? new PublicKey(data.mint) : null,
-    //     marketId: data.marketId ? new PublicKey(data.marketId) : null,
-    //     poolId: data.poolId ? new PublicKey(data.poolId) : null,
-    //     mainKp: data.mainKp,
-    //     poolKeys: null,
-    //     removed: data.removed
-    //   }
-    // } else
+    
     params = {
       mint: data.mint ? new PublicKey(data.mint) : null,
       marketId: data.marketId ? new PublicKey(data.marketId) : null,
