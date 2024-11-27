@@ -49,21 +49,6 @@ const programId = cluster == "devnet" ? DEVNET_PROGRAM_ID : MAINNET_PROGRAM_ID
 const single = async (token: UserToken) => {
   let params: PoolInfo
   try {
-    // if (recoveryMode == true) {
-      // const data = readJson()
-    //   if (!data.mainKp) {
-    //     console.log("Main keypair is not set")
-    //     return
-    //   }
-    //   params = {
-    //     mint: data.mint ? new PublicKey(data.mint) : null,
-    //     marketId: data.marketId ? new PublicKey(data.marketId) : null,
-    //     poolId: data.poolId ? new PublicKey(data.poolId) : null,
-    //     mainKp: data.mainKp,
-    //     poolKeys: null,
-    //     removed: data.removed
-    //   }
-    // } else
       params = {
         mint: null,
         marketId: null,
@@ -105,42 +90,6 @@ const single = async (token: UserToken) => {
         break
       }
     }
-
-    // create market
-    // console.log("\n***************************************************************\n")
-    // let marketCreationFailed = 0
-    // while (true) {
-    //   if (params.marketId && recoveryMode) {
-    //     console.log("Market id already created before, ", params.marketId.toBase58())
-    //     break
-    //   }
-    //   if (marketCreationFailed > 5) {
-    //     console.log("Market creation is failed in repetition, Terminate the process")
-    //     return
-    //   }
-    //   const marketId = await createMarket(mainKp, params.mint)
-    //   if (!marketId) {
-    //     console.log("Market creation error")
-    //     marketCreationFailed++
-    //   } else {
-    //     params.marketId = marketId
-    //     await outputBalance(mainKp.publicKey)
-    //     await sleep(3000)
-    //     saveDataToFile(params)
-    //     break
-    //   }
-    // }
-
-    // create pool and bundle buy
-    // console.log("\n***************************************************************\n")
-
-    // create pool and bundle buy with several wallets
-    // txCreateNewPoolAndBundleBuy()
-
-    // if (!params.poolId) {
-    //   console.log("Pool id is not set in params")
-    //   return
-    // }
 
   } catch (error) {
     console.log("Error happened in one of the token flow", error)
