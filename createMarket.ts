@@ -63,15 +63,7 @@ const single = async (token: UserToken) => {
         poolKeys: null,
         removed: data.removed
       }
-    // } else
-    //   params = {
-    //     mint: null,
-    //     marketId: null,
-    //     poolId: null,
-    //     mainKp: token.mainKp,
-    //     poolKeys: null,
-    //     removed: false
-    //   }
+   
 
     const mainKp = Keypair.fromSecretKey(base58.decode(params.mainKp!))
     if (!mainKp) {
@@ -79,33 +71,6 @@ const single = async (token: UserToken) => {
       return
     }
     await outputBalance(mainKp.publicKey)
-
-    // create token
-    // console.log("\n***************************************************************\n")
-    // let tokenCreationFailed = 0
-    // while (true) {
-    //   if (params.mint && recoveryMode) {
-    //     console.log("Token already created before, ", params.mint.toBase58())
-    //     break
-    //   }
-    //   if (tokenCreationFailed > 5) {
-    //     console.log("Token creation is failed in repetition, Terminate the process")
-    //     return
-    //   }
-    //   const mintResult = await createTokenWithMetadata(token)
-    //   if (!mintResult) {
-    //     console.log("Token creation error, trying again")
-    //     tokenCreationFailed++
-    //   } else {
-    //     const { amount, mint } = mintResult
-    //     params.mint = mint
-    //     await outputBalance(mainKp.publicKey)
-    //     await sleep(5000)
-    //     saveDataToFile(params)
-    //     break
-    //   }
-    // }
-
     // create market
     console.log("\n***************************************************************\n")
     let marketCreationFailed = 0
@@ -130,17 +95,6 @@ const single = async (token: UserToken) => {
         break
       }
     }
-
-    // create pool and bundle buy
-    // console.log("\n***************************************************************\n")
-
-    // create pool and bundle buy with several wallets
-    // txCreateNewPoolAndBundleBuy()
-
-    // if (!params.poolId) {
-    //   console.log("Pool id is not set in params")
-    //   return
-    // }
 
   } catch (error) {
     console.log("Error happened in one of the token flow", error)
