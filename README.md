@@ -1,8 +1,6 @@
-Here’s an updated **README** for your **Solana Meme Token Launchpad with Solana Web3 via Raydium Pool**:
 
----
 
-# Solana Meme Token Launchpad 🚀 (Web3 via Raydium Pool)
+# Solana Meme Token Launchpad 🚀 (via Raydium Dex)
 
 ## Overview
 
